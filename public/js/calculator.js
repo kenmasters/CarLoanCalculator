@@ -31,10 +31,10 @@ jQuery(document).ready(function($){
 
             var html = `<table class="table-box">
             <tr><th colspan="2">Loan Details Summary</th></tr>
-            <tr><td><strong>Principal</strong></td><td>${data.principal}</td></tr>
+            <tr><td><strong>Loan Amount</strong></td><td>${data.principal}</td></tr>
             <tr><td><strong>Term</strong></td><td>${data.termInMonth} months <br> <span class="more">${data.termInYear} years</span></td></tr>
-            <tr><td><strong>Rate (Annual)</strong></td><td>${data.rate}%</td></tr>
-            <tr><td><strong>Interest</strong></td><td>${data.interest}</td></tr>
+            <tr><td><strong>Annual Interest Rate</strong></td><td>${data.rate}%</td></tr>
+            <tr><td><strong>Interest Cost</strong></td><td>${data.interest}</td></tr>
             <tr><td><strong>Monthly Repayment</strong></td><td>${data.monthlyRepayment}</td></tr>
         </table>`;
 
