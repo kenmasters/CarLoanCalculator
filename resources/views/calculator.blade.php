@@ -128,7 +128,7 @@
                         <div class="form-wrapper">
                             <p class="label">Loan Amount</p>
                             <input type="number" class="form-control" id="amount" name="amount"
-                            placeholder="Enter amount" min="1" value="10000">
+                            placeholder="Enter amount" min="1">
                         </div>
                         <div class="form-wrapper">
                             <button class="loan-button" id="btn-save">CALCULATE</button>
@@ -178,6 +178,6 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="{{ asset('js/todo.js') }}" defer></script>
+        <script src="{{ asset('js/calculator.js') }}" defer></script>
     </body>
 </html>
