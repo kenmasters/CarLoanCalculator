@@ -2,6 +2,7 @@ jQuery(document).ready(function($){
 
   // CREATE
   $("#btn-save").click(function (e) {
+    e.preventDefault();
 
     // Reset error messages
     $('.error').hide();
@@ -9,10 +10,9 @@ jQuery(document).ready(function($){
 
       $.ajaxSetup({
           headers: {
-              'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
       });
-      e.preventDefault();
       var formData = {
           amount: $('#amount').val(),
       };
@@ -24,23 +24,17 @@ jQuery(document).ready(function($){
           data: formData,
           dataType: 'json',
           success: function (data) {
-            console.log(data);
-
-            // show Amortization schedule
-
-
             var html = `<table class="table-box">
-            <tr><th colspan="2">Loan Details Summary</th></tr>
-            <tr><td><strong>Loan Amount</strong></td><td>${data.principal}</td></tr>
-            <tr><td><strong>Term</strong></td><td>${data.termInMonth} months <br> <span class="more">${data.termInYear} years</span></td></tr>
-            <tr><td><strong>Annual Interest Rate</strong></td><td>${data.rate}%</td></tr>
-            <tr><td><strong>Interest Cost</strong></td><td>${data.interest}</td></tr>
-            <tr><td><strong>Monthly Repayment</strong></td><td>${data.monthlyRepayment}</td></tr>
-        </table>`;
+                          <tr><th colspan="2">Loan Details Summary</th></tr>
+                          <tr><td><strong>Loan Amount</strong></td><td>${data.principal}</td></tr>
+                          <tr><td><strong>Term</strong></td><td>${data.termInMonth} months <br> <span class="more">${data.termInYear} years</span></td></tr>
+                          <tr><td><strong>Annual Interest Rate</strong></td><td>${data.rate}%</td></tr>
+                          <tr><td><strong>Interest Cost</strong></td><td>${data.interest}</td></tr>
+                          <tr><td><strong>Monthly Repayment</strong></td><td>${data.monthlyRepayment}</td></tr>
+                        </table>`;
 
-              // var result = '<tr id="todo' + data.id + '"><td>' + data.principal + '</td><td>' + data.interest + '</td><td>' + data.interest + '</td>';
-              jQuery('#result').html(html);
-              jQuery('#calculator').trigger("reset");
+            $('#result').html(html);
+            $('#calculator').trigger("reset");
           },
           error: function (data) {
             var response = $.parseJSON(data.responseText);

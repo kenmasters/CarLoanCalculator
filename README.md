@@ -7,9 +7,32 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Take Home Assignment - Laravel / PHP
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The task solves a real-world problem related to car loans by calculating interest cost for a given
+loan amount (principal).
+
+## Brief
+
+Write an API-driven application that consumes a principal amount (original amount borrowed) from
+an HTML form and outputs the interest cost asynchronously (without page reload).
+
+You can calculate using the formula I = P x R x T, where:
+- "I" is the Interest Cost (OUTPUT)
+- "P" is Principal, or the original amount borrowed (INPUT)
+- "R" is the Rate of Interest, expressed as a decimal (Use 6% annual interest)
+- "T" is Term, or length of the loan (5 Years)
+
+Note: For the equation to be accurate, you've got to make sure that your rate and term are both being
+measured by the same time intervals. For instance, if you're using an annualized interest rate, you must
+calculate your term in years.
+
+## Technical Specifications
+
+- PHP Version 8.1
+- Laravel Version 9
+
+## Setting up on local environment
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
@@ -21,15 +44,11 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## References
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Lorem ipsum
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
+## Remote
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
