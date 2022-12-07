@@ -116,7 +116,10 @@
                 box-sizing: border-box;
             }
 
-            .error-style {
+            .form-wrapper.has-error {
+                "border": "2px solid #db5151"
+            }
+            .error {
                 color: #db5151;
                 margin: 3px 0 0 0;
                 text-align: right;
@@ -138,7 +141,7 @@
                             <p class="label">Loan Amount</p>
                             <input type="number" class="form-control" id="amount" name="amount"
                             placeholder="Enter amount" min="1">
-                            <p id="error" class="error-style" hidden></p>
+                            <p class="error" hidden></p>
                         </div>
                         <div class="form-wrapper">
                             <button class="loan-button" id="btn-save">CALCULATE</button>

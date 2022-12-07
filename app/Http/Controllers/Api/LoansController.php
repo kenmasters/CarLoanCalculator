@@ -26,15 +26,13 @@ class LoansController extends Controller
     }
     public function calculate(Request $request)
     {
-        // validate that $principal must not be int and greater than zero.
-        // $principal = $request->validate([
-        //     "principal" => ["required", "integer", "min:1"]
-        // ]);
-
-        $principal = $request->input("amount");
+        // validate that $principal must not be numeric and greater than zero.
         $request->validate([
             'amount' => 'required|numeric|gt:0',
         ]);
+
+        $principal = $request->input("amount");
+
         // I = P x R x T
         $interest = $principal * self::ANNUAL_INTEREST_RATE * self::LOAN_TERM_IN_YEARS;
 

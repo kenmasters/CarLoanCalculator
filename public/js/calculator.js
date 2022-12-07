@@ -1,6 +1,12 @@
 jQuery(document).ready(function($){
+
   // CREATE
   $("#btn-save").click(function (e) {
+
+    // Reset error messages
+    $('.error').hide();
+    $('.form-control').removeClass('has-error');
+
       $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
@@ -21,10 +27,8 @@ jQuery(document).ready(function($){
             console.log(data);
 
             // show Amortization schedule
-            $('.error-style').hide();
-            $('.form-control').css({"border-color": "#bababa","border-width" :"2px"});
-            $('.caption-header').show();
-            var caption = data.principal + ' at ' + data.rate + '% interest';
+
+
             var html = `<table class="table-box">
             <tr><th colspan="2">Loan Details Summary</th></tr>
             <tr><td><strong>Principal</strong></td><td>${data.principal}</td></tr>
@@ -34,22 +38,14 @@ jQuery(document).ready(function($){
             <tr><td><strong>Monthly Repayment</strong></td><td>${data.monthlyRepayment}</td></tr>
         </table>`;
 
-
-
               // var result = '<tr id="todo' + data.id + '"><td>' + data.principal + '</td><td>' + data.interest + '</td><td>' + data.interest + '</td>';
-              jQuery('.caption').html(caption);
               jQuery('#result').html(html);
               jQuery('#calculator').trigger("reset");
-
           },
           error: function (data) {
             var response = $.parseJSON(data.responseText);
-            if(response.errors){
-              document.getElementById('error').innerHTML = response.message;
-              $('.error-style').show();
-              $('.form-control').css({"border-color": "#db5151","border-width" :"2px"});
-            }
-            console.log(data);
+            $(".error").html(response.message).show();
+            $('.form-control').addClass('has-error');
           }
       });
   });
