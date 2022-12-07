@@ -115,6 +115,15 @@
                 -webkit-box-sizing: border-box;
                 box-sizing: border-box;
             }
+
+            .error-style {
+                color: #db5151;
+                margin: 3px 0 0 0;
+                text-align: right;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -129,6 +138,7 @@
                             <p class="label">Loan Amount</p>
                             <input type="number" class="form-control" id="amount" name="amount"
                             placeholder="Enter amount" min="1">
+                            <p id="error" class="error-style" hidden></p>
                         </div>
                         <div class="form-wrapper">
                             <button class="loan-button" id="btn-save">CALCULATE</button>

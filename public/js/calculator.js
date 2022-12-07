@@ -19,7 +19,10 @@ jQuery(document).ready(function($){
           dataType: 'json',
           success: function (data) {
             console.log(data);
+
             // show Amortization schedule
+            $('.error-style').hide();
+            $('.form-control').css({"border-color": "#bababa","border-width" :"2px"});
             $('.caption-header').show();
             var caption = data.principal + ' at ' + data.rate + '% interest';
             var html = `<table class="table-box">
@@ -40,7 +43,13 @@ jQuery(document).ready(function($){
 
           },
           error: function (data) {
-              console.log(data);
+            var response = $.parseJSON(data.responseText);
+            if(response.errors){
+              document.getElementById('error').innerHTML = response.message;
+              $('.error-style').show();
+              $('.form-control').css({"border-color": "#db5151","border-width" :"2px"});
+            }
+            console.log(data);
           }
       });
   });

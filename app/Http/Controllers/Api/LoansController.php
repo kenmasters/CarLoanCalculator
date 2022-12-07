@@ -32,7 +32,9 @@ class LoansController extends Controller
         // ]);
 
         $principal = $request->input("amount");
-
+        $request->validate([
+            'amount' => 'required|numeric|gt:0',
+        ]);
         // I = P x R x T
         $interest = $principal * self::ANNUAL_INTEREST_RATE * self::LOAN_TERM_IN_YEARS;
 
